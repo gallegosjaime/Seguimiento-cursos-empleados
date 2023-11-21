@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRegistrosB.Menu">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Label Text="Selecciona la opción que deseas realizar"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+            <Button Text="Administrar cursos" Clicked="Button_Cursos"></Button>
+            <Button Text="Administrar Empleados" Clicked="Button_Empleados"></Button>
+            <Button Text="Administrar Cursos de Empleados" Clicked="Button_seguimiento"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

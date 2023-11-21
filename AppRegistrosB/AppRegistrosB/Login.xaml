@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRegistrosB.Login">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
+                <Label Text="Login" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+            </Frame>
+            <Entry Placeholder="Escribir correo" x:Name="txtEmailLog" Keyboard="Email"></Entry>
+            <Entry Placeholder="Escribir la contraseña" x:Name="txtContraLog" IsPassword="True"></Entry>
+            <Button Text="Ingresar" x:Name="btnIngresar" Clicked="Button_Login"></Button>
+            <Button Text="Registrarse" x:Name="btnRegistrar" Clicked="Button_Registrarse"></Button>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

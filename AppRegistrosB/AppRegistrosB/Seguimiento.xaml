@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppRegistrosB.Seguimiento">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame Background="#517B9D" Padding="10" CornerRadius="0" Margin="0">
+                <Label Text="Seguimiento de cursos" HorizontalTextAlignment="Center" TextColor="White" FontSize="30"/>
+            </Frame>
+            
+            <Grid Margin="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <!-- Lista de usuarios-->
+                <ListView x:Name="lsSeguimiento" ItemSelected="lstCursos_ItemSelected" Grid.Row="0" Margin="0,60,0,0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                        <RowDefinition Height="auto"></RowDefinition>
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Text="{Binding IdRegistro}" Grid.Row="0" Grid.Column="0"></Label>
+                                    <Label Text="{Binding IdEmple}" Grid.Row="0" Grid.Column="1"></Label>
+                                    <Label Text="{Binding NombreEmple}" Grid.Row="0" Grid.Column="2"></Label>
+                                    <Label Text="{Binding NombreCurso}" Grid.Row="0" Grid.Column="3"></Label>
+                                    <Label Text="{Binding Fecha}" Grid.Row="0" Grid.Column="4"></Label>
+                                    <Label Text="{Binding Hora}" Grid.Row="0" Grid.Column="5"></Label>
+                                    <Label Text="{Binding Estatus}" Grid.Row="0" Grid.Column="6"></Label>
+                                    <Label Text="{Binding Calificacion}" Grid.Row="0" Grid.Column="7"></Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <!--Popup Menu-->
+                <Frame Grid.Row="0" Background="rgba(128, 128, 128, 0.7)" x:Name="panelEdit" Padding="10" IsVisible="false">
+                    <StackLayout Padding="20" BackgroundColor="White" VerticalOptions="Start">
+                        <Label Text="Asignar curso" x:Name="labelAccion" FontSize="20" HorizontalTextAlignment="Center" Margin="0,0,0,10"></Label>
+                        <!--Campos de texto-->
+                        <Entry x:Name="IdRegistro" IsEnabled="False"></Entry>
+                        <Picker x:Name="pickIdEmpl" Title="Seleccionar ID del empleado" SelectedIndexChanged="AutocompletarNombre" IsEnabled="False"></Picker>
+                        <Picker x:Name="pickNomEmpl" Title="Seleccionar nombre del empleado" SelectedIndexChanged="AutocompletarID" IsEnabled="False"></Picker>
+                        <Picker x:Name="pickNomCurso" Title="Seleccionar nombre del curso" IsEnabled="False"></Picker>
+                        <DatePicker x:Name="pickFecha" IsEnabled="False"></DatePicker>
+                        <TimePicker x:Name="pickHora" IsEnabled="False" Format = "HH:mm:ss"></TimePicker>
+                        <Picker x:Name="pickStatus" Title="Seleccionar el estatus del curso" IsEnabled="False"></Picker>
+                        <Picker x:Name="pickCalificacion" Title="Seleccionar la calificacion del curso" IsEnabled="False"></Picker>
+                            <!--Botones-->
+                        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="0,30,0,0">
+                            <!--Principales-->
+                            <Button Text="Eliminar"  x:Name="btnEliminar" Clicked="Button_Eliminar_Clicked" 
+                                HorizontalOptions="StartAndExpand" Padding="15" BackgroundColor="Transparent" TextColor="Red"/>
+                            <Button Text="Editar" x:Name="btnEditar" Clicked="Button_Editar_clicked" 
+                                HorizontalOptions="EndAndExpand"/>
+                            <!--Se ejecutan una vez dado editar-->
+                            <Button Text="Cancelar"  x:Name="btnActualizar" IsVisible="false" Clicked="Button_Cancelar_clicked" 
+                                HorizontalOptions="StartAndExpand" Padding="15"/>
+                            <Button Text="Actualizar" x:Name="btnCancelar" IsVisible="false" Clicked="Button_Actualizar_Clicked" 
+                                HorizontalOptions="EndAndExpand"/>
+                            <Button Text="Guardar" x:Name="btnGuardar" IsVisible="false" Clicked="Button_Guardar_Clicked" 
+                                HorizontalOptions="EndAndExpand"/>
+                        </StackLayout>
+                        <!--Cerrar popup-->
+                        <Button Text="Cerrar" x:Name="btnCerrar" Margin="0,20,0,0" Padding="20" Clicked="Button_Cerrar_clicked"></Button>
+                    </StackLayout>
+                </Frame>
+                <Button Text="Asignar Curso" VerticalOptions="StartAndExpand" x:Name="btnCrear" Clicked="Button_Crear_Clicked" Grid.Row="0"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
